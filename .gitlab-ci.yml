@@ -18,7 +18,6 @@ test:
   stage: test
   script:
     - echo Running tests
-    - ./script_to_break_pipe_line
 
 deploy:
   stage: deploy
