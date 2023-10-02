@@ -22,7 +22,7 @@ test:
 deploy:
   stage: deploy
   script:
-    - apk install git
+    - apk add git
     - echo "Define your deployment script!"
     - git clone https://piotr.kwiatkowski:$GITHUB_ACCESS_TOKEN@github.com/Pararanta/wallbox-device/ --branch=master
     - cd wallbox-device
