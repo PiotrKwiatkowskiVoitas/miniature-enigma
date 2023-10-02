@@ -1,0 +1,8 @@
+FIRMWARE/Debug/
+FIRMWARE/Release/
+*/out/
+*/.vs/
+
+build/
+.vscode/
+.settings/

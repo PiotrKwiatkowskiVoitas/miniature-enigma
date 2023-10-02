@@ -1,0 +1,1 @@
+echo Testing commands from script

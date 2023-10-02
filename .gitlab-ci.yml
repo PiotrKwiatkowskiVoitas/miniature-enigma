@@ -1,0 +1,25 @@
+variables:
+  GIT_SUBMODULE_STRATEGY: recursive
+
+image:
+  192.168.103.10:443/build_cmake_stm
+
+build:
+  stage: build
+  script:
+    - mkdir build && cd build
+    - cmake ../FIRMWARE -DBUILD_TYPE=S -DSTM_CODE=L051C8TX
+    - make
+  artifacts:
+    paths:
+      - build/
+
+test:
+  stage: test
+  script:
+    - echo Running tests
+
+deploy:
+  stage: deploy
+  script: echo "Define your deployment script!"
+  environment: production
