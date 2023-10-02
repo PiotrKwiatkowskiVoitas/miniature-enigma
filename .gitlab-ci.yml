@@ -4,15 +4,15 @@ variables:
 image:
   192.168.103.10:443/build_cmake_stm
 
-build:
-  stage: build
-  script:
-    - mkdir build && cd build
-    - cmake .. -DBUILD_TYPE=S -DSTM_CODE=F103RBTX
-    - make
-  artifacts:
-    paths:
-      - build/
+# build:
+#   stage: build
+#   script:
+#     - mkdir build && cd build
+#     - cmake .. -DBUILD_TYPE=S -DSTM_CODE=F103RBTX
+#     - make
+#   artifacts:
+#     paths:
+#       - build/
 
 test:
   stage: test
@@ -22,6 +22,7 @@ test:
 deploy:
   stage: deploy
   script:
+    - apk install git
     - echo "Define your deployment script!"
     - git clone https://piotr.kwiatkowski:$GITHUB_ACCESS_TOKEN@github.com/Pararanta/wallbox-device/ --branch=master
     - cd wallbox-device
