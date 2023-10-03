@@ -14,17 +14,25 @@ image:
 #     paths:
 #       - build/
 
-test:
-  stage: test
-  script:
-    - echo Running tests
+# test:
+#   stage: test
+#   script:
+#     - echo Running tests
 
 deploy:
   stage: deploy
   script:
     - apk add git
     - echo "Define your deployment script!"
-    - git clone https://piotr.kwiatkowski:$GITHUB_ACCESS_TOKEN@github.com/Pararanta/wallbox-device/ --branch=master
+    - git clone https://piotr.kwiatkowski:$GITHUB_ACCESS_TOKEN@github.com/PiotrKwiatkowskiVoitas/glowing-lamp --branch=main
     - cd wallbox-device
-    - ls -lah
+    - ls -lah # add file to repo from base.
+    - mv main.cpp glowing-lamp/
+    - cd glowing-lamp/
+    - git remote remove origin
+    - git remote add origin https://piotr.kwiatkowski:$GITHUB_ACCESS_TOKEN@github.com/PiotrKwiatkowskiVoitas/glowing-lamp
+    - git add -A
+    - git commit -m "Added in external CICD"
+    - git push
+  # Add release
   environment: production
