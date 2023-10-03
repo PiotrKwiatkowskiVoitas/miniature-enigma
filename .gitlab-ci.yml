@@ -4,20 +4,22 @@ variables:
 image:
   192.168.103.10:443/build_cmake_stm
 
-# build:
-#   stage: build
-#   script:
-#     - mkdir build && cd build
-#     - cmake .. -DBUILD_TYPE=S -DSTM_CODE=F103RBTX
-#     - make
-#   artifacts:
-#     paths:
-#       - build/
+build:
+  stage: build
+  script:
+    - mkdir build && cd build
+    - cmake .. -DBUILD_TYPE=S -DSTM_CODE=F103RBTX
+    - make
+  artifacts:
+    paths:
+      - build/
 
-# test:
-#   stage: test
-#   script:
-#     - echo Running tests
+test:
+  stage: test
+  script:
+    - echo Running tests
+    - echo $CI_COMMIT_BRANCH
+    - echo $CI_COMMIT_DESCRIPTION
 
 deploy:
   stage: deploy
@@ -35,6 +37,7 @@ deploy:
     - git config --global user.name "Voitas CICD agent"
     - git remote remove origin
     - git remote add origin https://piotr.kwiatkowski:$GITHUB_ACCESS_TOKEN@github.com/PiotrKwiatkowskiVoitas/glowing-lamp
+    - git checkout -b $CI_COMMIT_BRANCH
     - git add -A
     - git commit -m "Added in external CICD 2.0"
     - git push origin main
