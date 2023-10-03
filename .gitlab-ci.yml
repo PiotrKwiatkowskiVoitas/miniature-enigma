@@ -34,6 +34,6 @@ deploy:
     - git remote add origin https://piotr.kwiatkowski:$GITHUB_ACCESS_TOKEN@github.com/PiotrKwiatkowskiVoitas/glowing-lamp
     - git add -A
     - git commit -m "Added in external CICD"
-    - git push
+    - git push main
   # Add release
   environment: production
