@@ -26,14 +26,17 @@ deploy:
     - echo "Define your deployment script!"
     - git clone https://piotr.kwiatkowski:$GITHUB_ACCESS_TOKEN@github.com/PiotrKwiatkowskiVoitas/glowing-lamp --branch=main
     - ls -lah # add file to repo from base.
+
     - mv main.cpp glowing-lamp/
+    - mv CMakeLists.txt glowing-lamp/
+
     - cd glowing-lamp/
     - git config --global user.email "help@example.com"
     - git config --global user.name "Voitas CICD agent"
     - git remote remove origin
     - git remote add origin https://piotr.kwiatkowski:$GITHUB_ACCESS_TOKEN@github.com/PiotrKwiatkowskiVoitas/glowing-lamp
     - git add -A
-    - git commit -m "Added in external CICD"
+    - git commit -m "Added in external CICD 2.0"
     - git push origin main
   # Add release
   environment: production
