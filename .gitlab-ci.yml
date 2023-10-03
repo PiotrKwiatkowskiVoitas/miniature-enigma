@@ -28,6 +28,8 @@ deploy:
     - ls -lah # add file to repo from base.
     - mv main.cpp glowing-lamp/
     - cd glowing-lamp/
+    - git config --global user.email "help@example.com"
+    - git config --global user.name "Voitas CICD agent"
     - git remote remove origin
     - git remote add origin https://piotr.kwiatkowski:$GITHUB_ACCESS_TOKEN@github.com/PiotrKwiatkowskiVoitas/glowing-lamp
     - git add -A
