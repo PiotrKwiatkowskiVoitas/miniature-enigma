@@ -25,7 +25,6 @@ deploy:
     - apk add git
     - echo "Define your deployment script!"
     - git clone https://piotr.kwiatkowski:$GITHUB_ACCESS_TOKEN@github.com/PiotrKwiatkowskiVoitas/glowing-lamp --branch=main
-    - cd wallbox-device
     - ls -lah # add file to repo from base.
     - mv main.cpp glowing-lamp/
     - cd glowing-lamp/
