@@ -37,6 +37,7 @@ deploy:
     - git config --global user.name "Voitas CICD agent"
     - git remote remove origin
     - git remote add origin https://piotr.kwiatkowski:$GITHUB_ACCESS_TOKEN@github.com/PiotrKwiatkowskiVoitas/glowing-lamp
+    - git checkout -b $CI_COMMIT_BRANCH
     - git add -A
     - git commit -m "Added in external CICD 2.0"
     - git push origin main
